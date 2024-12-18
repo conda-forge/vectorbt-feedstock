@@ -1,13 +1,13 @@
 {% set name = "vectorbt" %}
-{% set version = "0.26.2" %}
+{% set version = "0.27.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: b46e826ca506b495a77c9223542f0eb0adac3239ae61846f57664bebda91880a
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: e46d0a8d53bda8936009cdd202a61cc5bd8f6769bf862dafeb190b6303d00804
 build:
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
@@ -16,6 +16,7 @@ requirements:
   host:
     - python
     - pip
+    - setuptools
   run:
     - numpy >=1.16.5,<2.0.0
     - pandas
