@@ -1,5 +1,5 @@
 {% set name = "vectorbt" %}
-{% set version = "0.27.1" %}
+{% set version = "0.27.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: d96cc8a52de438b825e41be6661c8a102ae46f20ccdcfd923ea180980c1dd902
+  sha256: abf572f480edebacc9bcc8c8cb62db412d89782a2c3d7d6c1605d7646c766f1e
 build:
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
