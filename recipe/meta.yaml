@@ -18,7 +18,8 @@ requirements:
     - pip
     - setuptools
   run:
-    - numpy >=1.16.5,<2.0.0
+    - numpy >=1.16.5,<2.0.0  # [py < 313]
+    - numpy >=1.16.5  # [py >= 313]
     - pandas
     - python
     - scipy
