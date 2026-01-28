@@ -19,7 +19,7 @@ requirements:
     - setuptools
   run:
     - numpy >=1.23
-    - panda s>=2.0,<3.0
+    - pandas >=2.0,<3.0
     - python
     - scipy
     - matplotlib-base
