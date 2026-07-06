@@ -20,14 +20,14 @@ requirements:
     - setuptools
   run:
     - numpy >=1.23
-    - pandas >=2.0,<3.0
+    - pandas >=3.0.3,<4
     - python
     - scipy
     - matplotlib-base
     - plotly >=4.12.0
     - ipywidgets >=7.0.0
     - anywidget
-    - numba >=0.60
+    - numba >=0.66
     - dill
     - tqdm
     - dateparser
