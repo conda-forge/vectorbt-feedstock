@@ -31,6 +31,7 @@ requirements:
     - ipywidgets >=7.0.0
     - anywidget
     - numba >=0.66
+    - nbformat
     - dill
     - tqdm
     - dateparser
