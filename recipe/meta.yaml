@@ -1,5 +1,6 @@
 {% set name = "vectorbt" %}
-{% set version = "1.1.2" %}
+{% set version = "1.2.0" %}
+{% set python_min = "3.11" %}
 
 package:
   name: {{ name|lower }}
@@ -7,30 +8,31 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: c90e59f0038f007004dbcffcb72d899a8a7f763b7369d957f5da947e803e842b
+  sha256: f336deba190c4d249d37aaf7c65945769ea952836090e4128da73508af7b6de8
 build:
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
-  skip: true  # [py<=311]
+  noarch: python
 
 requirements:
   build:
-    - python                                 # [build_platform != target_platform]
+    - python  {{ python_min }}.*             # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
   host:
-    - python
+    - python {{ python_min }}.*
     - pip
     - setuptools
   run:
     - numpy >=1.23
     - pandas >=3.0.3,<4
-    - python
+    - python >={{ python_min }}
     - scipy
     - matplotlib-base
     - plotly >=4.12.0
     - ipywidgets >=7.0.0
     - anywidget
     - numba >=0.66
+    - nbformat
     - dill
     - tqdm
     - dateparser
@@ -48,7 +50,7 @@ test:
     - vectorbt
   requires:
     - pip
-    - python
+    - python {{ python_min }}.*
     - pytest
     - pytest-asyncio
     - pytest-dotenv
