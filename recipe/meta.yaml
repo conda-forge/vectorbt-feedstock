@@ -1,5 +1,6 @@
 {% set name = "vectorbt" %}
 {% set version = "1.2.0" %}
+{% set python_min = "3.11" %}
 
 package:
   name: {{ name|lower }}
@@ -11,7 +12,6 @@ source:
 build:
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
-  skip: true  # [py<=311]
   noarch: python
 
 requirements:
@@ -25,7 +25,7 @@ requirements:
   run:
     - numpy >=1.23
     - pandas >=3.0.3,<4
-    - python >= {{ python_min }}
+    - python >={{ python_min }}
     - scipy
     - matplotlib-base
     - plotly >=4.12.0
@@ -50,7 +50,7 @@ test:
     - vectorbt
   requires:
     - pip
-    - python >= {{ python_min }}
+    - python {{ python_min }}.*
     - pytest
     - pytest-asyncio
     - pytest-dotenv
